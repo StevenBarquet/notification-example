@@ -1,6 +1,6 @@
 {
   "name": "backend-template",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "index.js",
   "keywords": [],
@@ -10,8 +10,8 @@
     "preinstall": "node ./config/git-hooks/install-hooks.js",
     "predev": "cross-env NODE_ENV=development node ./config/git-hooks/scripts/pre-run.js",
     "preprod": "cross-env NODE_ENV=production node ./config/git-hooks/scripts/pre-run.js",
-    "dev": "nodemon -e ts --ignore dist/  --ignore src/entities/health/config/ --watch src/ --exec npm run prod",
-    "prod": "tsc && tsc-alias; node ./dist/framework/index.js",
+    "dev": "nodemon -e ts --ignore dist/  --ignore src/entities/health/config/ --watch src/ --exec 'tsc && tsc-alias && node ./dist/framework/index.js'",
+    "prod": "tsc && tsc-alias && cross-env NODE_ENV=production node ./dist/framework/index.js",
     "build": "tsc && tsc-alias",
     "start": "node ./dist/framework/index.js"
   },

@@ -1,8 +1,8 @@
-export const commitID = `f3248b7ec4a3bfdf259d1511e99c7ad2a0c72d8e`;
+export const commitID = `2d1e008f8c2b79135bce6d146304a4e87a34a547`;
     
-  export const commitMssg = `template de express actualizado`;
+  export const commitMssg = `development and production envs setup correctly`;
   
-  export const commitDate = `Tue Jan 31 2023 15:36:02 GMT-0600 (Central Standard Time)`;
+  export const commitDate = `Tue Jan 31 2023 16:01:01 GMT-0600 (Central Standard Time)`;
   
   export const commitAuthor = `sb`;
   
