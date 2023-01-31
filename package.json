@@ -1,6 +1,6 @@
 {
   "name": "backend-template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "keywords": [],
@@ -8,6 +8,8 @@
   "license": "ISC",
   "scripts": {
     "preinstall": "node ./config/git-hooks/install-hooks.js",
+    "predev": "cross-env NODE_ENV=development node ./config/git-hooks/scripts/pre-run.js",
+    "preprod": "cross-env NODE_ENV=production node ./config/git-hooks/scripts/pre-run.js",
     "dev": "nodemon -e ts --ignore dist/ --watch src/ --exec npm run prod",
     "prod": "tsc && tsc-alias; node ./dist/index.js",
     "build": "tsc && tsc-alias",
@@ -23,14 +25,21 @@
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-prettier": "^4.0.0",
+    "git-last-commit": "^1.0.1",
     "nodemon": "^2.0.16",
     "prettier": "^2.7.1"
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
     "tsc-alias": "^1.6.11",
     "typescript": "^4.7.4"
   },
   "engines": {
     "node": "16.x"
+  },
+  "nodemonConfig": {
+    "env": {
+      "NODE_ENV": "development"
+    }
   }
 }
