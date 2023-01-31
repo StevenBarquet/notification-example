@@ -17,7 +17,7 @@ function getGitInfo() {
     git.getLastCommit(function (er, commit) {
       const fullFile = path.join(
         __dirname,
-        '../../../src/entities/health/appVersion.ts',
+        '../../../src/entities/health/config/appVersion.ts',
       );
       // read commit object properties
       const commitID = commit?.hash;
