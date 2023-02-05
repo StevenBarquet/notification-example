@@ -2,15 +2,17 @@
 // ---Dependencies
 import express, { Request, Response } from 'express';
 // ---Custom
-import { getHealthData } from 'src/entities/health/resolvers/get';
+import { autUser } from 'src/auth/google/resolvers/autUser';
 
 // -----------------------------------CONFIG-------------------------------
 const router = express.Router();
 
 // -----------------------------------ROUTES-------------------------------
-router.get('/', (_: Request, res: Response) => {
-  const { data } = getHealthData();
+router.post('/login', async (req: Request, res: Response) => {
+  console.log('req.body', req.body);
+
+  const data = await autUser(req);
   res.send({ err: false, data });
 });
 
-export const healthRoutes = router;
+export const authRoutes = router;

@@ -1,8 +1,8 @@
-export const commitID = `2d1e008f8c2b79135bce6d146304a4e87a34a547`;
+export const commitID = `681a6d2c7546706acdb3b4924b711028341e6580`;
     
-  export const commitMssg = `development and production envs setup correctly`;
+  export const commitMssg = `google auth example`;
   
-  export const commitDate = `Tue Jan 31 2023 16:01:01 GMT-0600 (Central Standard Time)`;
+  export const commitDate = `Sun Feb 05 2023 12:21:50 GMT-0600 (Central Standard Time)`;
   
   export const commitAuthor = `sb`;
   
