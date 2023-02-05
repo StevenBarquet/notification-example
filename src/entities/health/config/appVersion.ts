@@ -1,8 +1,8 @@
-export const commitID = `e9e7947710e6b4f86e664871e63d3ec4353310bc`;
+export const commitID = `8f4c71b68e4df34d3650ea7eb6a1e60352156d1d`;
     
-  export const commitMssg = `types in normal deps`;
+  export const commitMssg = `docker file fixed`;
   
-  export const commitDate = `Sun Feb 05 2023 12:32:44 GMT-0600 (Central Standard Time)`;
+  export const commitDate = `Sun Feb 05 2023 12:35:29 GMT-0600 (Central Standard Time)`;
   
   export const commitAuthor = `sb`;
   
