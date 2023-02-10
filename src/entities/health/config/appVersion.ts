@@ -1,8 +1,8 @@
-export const commitID = `23cd4961ce72c0553677f496078f9dbda5782ffb`;
+export const commitID = `dbe0537d6ed7527370420a94dc95ff8b6840d17a`;
     
-  export const commitMssg = `template limpio con envs y scripts configurados 100%`;
+  export const commitMssg = `exact versions for packages`;
   
-  export const commitDate = `Fri Feb 10 2023 17:44:15 GMT-0600 (Central Standard Time)`;
+  export const commitDate = `Fri Feb 10 2023 17:52:09 GMT-0600 (Central Standard Time)`;
   
   export const commitAuthor = `sb`;
   
