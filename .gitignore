@@ -1,3 +1,4 @@
 node_modules
 dist
-env/untracked/*.js
+config/env/secrets.js
+src/entities/health/config/envsData.ts

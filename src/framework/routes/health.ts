@@ -1,13 +1,12 @@
-// --------------------------------------IMPORTS------------------------------------
 // ---Dependencies
 import express, { Request, Response } from 'express';
 // ---Custom
 import { getHealthData } from 'src/entities/health/resolvers/get';
 
-// -----------------------------------CONFIG-------------------------------
+// ---------------- CONFIG
 const router = express.Router();
 
-// -----------------------------------ROUTES-------------------------------
+// ---------------- MAIN MODULE
 router.get('/', (_: Request, res: Response) => {
   const { data } = getHealthData();
   res.send({ err: false, data });

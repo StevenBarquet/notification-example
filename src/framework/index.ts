@@ -1,35 +1,47 @@
 // ---Dependencies
 import express from 'express';
 // ---Middlewares
-import morgan from 'morgan';
-import helmet from 'helmet';
+import { customHelmet } from './middlewares/customHelmet';
+import { morganlogger } from './middlewares/morganlogger';
 import cors from 'cors';
-// ---Others
-import { startLogs } from 'src/framework/middlewares/startLogs';
-// ---Routes
+// // ---GraphQL stuff
+// import { apolloServerInyection } from './GraphQL/apolloServerInyection';
+// ---DB stuff
+import { mongoConnect } from '../configs/mongoConfig';
+// ---Constants
 import { healthRoutes } from './routes/health';
-import { authRoutes } from './routes/auth';
+import { APP_PORT, CORS_CONFIG } from 'src/configs/constants/basicConstants';
+import { envValidator } from 'src/configs/envValidator';
 
-// -----------------------------------CONFIG-------------------------------
-const app = express();
-const port = process.env.PORT || 4000;
+const debugProd = require('debug')('app:prod');
 
-startLogs();
+/** Main wrapper */
+function main() {
+  // ---------------- CONFIG
+  envValidator();
+  const app = express();
+  mongoConnect();
+  // ---------------- MIDDLEWARES
+  app.use(express.json()); // Needed to read req.body
+  customHelmet(app);
+  morganlogger(app);
+  app.use(cors(CORS_CONFIG)); // Cors policy
 
-// -----------------------------------MIDDLEWARES-------------------------------
-app.use(express.json()); // Needed to read req.body
-app.use(helmet()); // For security
-app.use(cors()); // For security
-app.use(morgan('dev'));
-// -----------------------------------ROUTES-------------------------------
-app.use('/health/', healthRoutes);
-app.use('/api/auth', authRoutes);
-// -----------------------------------SSL-------------------------------
-const http = require('http');
+  // ---------------- ROUTES
+  app.use('/health/', healthRoutes);
+  // apolloServerInyection(app); // "/graphql" post endpoint
+  // ---------------- SSL
+  // eslint-disable-next-line global-require
+  const http = require('http');
 
-const server = http;
-const options = {}; // Get ssl certs if https true
-// -----------------------------------SERVER-------------------------------
-server.createServer(options, app).listen(port, () => {
-  console.log(`https: ${false}, listening to port ${port}...`);
-});
+  // const trySSL = process.env.USE_SSL || false; // Set use of https from enviroment
+
+  const server = http;
+  const options = {}; // Get ssl certs if https true
+  // ---------------- SERVER
+  server.createServer(options, app).listen(APP_PORT, () => {
+    debugProd(`https: ${false}, listening to port ${APP_PORT}...`);
+  });
+}
+
+main();
