@@ -1,8 +1,8 @@
-export const commitID = `3b0856f86db7df0938ed9d207e4ff3ab626c2e01`;
+export const commitID = `4061ba0f5e92a39ea2585bab394107687634a5f1`;
     
-  export const commitMssg = `exact versions for packages and project folder structure`;
+  export const commitMssg = `expect scripts added`;
   
-  export const commitDate = `Fri Feb 10 2023 18:11:10 GMT-0600 (Central Standard Time)`;
+  export const commitDate = `Fri Feb 10 2023 18:18:30 GMT-0600 (Central Standard Time)`;
   
   export const commitAuthor = `sb`;
   

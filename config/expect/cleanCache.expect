@@ -1,0 +1,10 @@
+#!/usr/bin/expect
+
+spawn docker system prune
+
+expect "y/N" {
+		send "y\r"	
+	}
+interact
+
+# Script to pull repo from azure with token

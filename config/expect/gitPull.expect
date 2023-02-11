@@ -1,0 +1,12 @@
+#!/usr/bin/expect
+
+send -- "cd backend\r"
+
+spawn git pull
+
+expect "https://onephasellc@dev.azure.com'" {
+		send "rqb5kxbxkuckyd4spgz3xcixlhblqaub2iv7rqqho5en7rhpaisa\r"	
+	}
+interact
+
+# Script to pull repo from azure with token
