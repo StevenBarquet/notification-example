@@ -1,8 +1,8 @@
-export const commitID = `4200bb36b5e7080e9cfabd3b72b6cb3b2dd7ab15`;
+export const commitID = `9c55f9d3a12f72ae80239a9bc14e7b98ea2d42bc`;
     
   export const commitMssg = `exact versions for packages and project folder structure`;
   
-  export const commitDate = `Fri Feb 10 2023 18:07:09 GMT-0600 (Central Standard Time)`;
+  export const commitDate = `Fri Feb 10 2023 18:07:44 GMT-0600 (Central Standard Time)`;
   
   export const commitAuthor = `sb`;
   

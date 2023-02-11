@@ -4,8 +4,6 @@ import express from 'express';
 import { customHelmet } from './middlewares/customHelmet';
 import { morganlogger } from './middlewares/morganlogger';
 import cors from 'cors';
-// // ---GraphQL stuff
-// import { apolloServerInyection } from './GraphQL/apolloServerInyection';
 // ---DB stuff
 import { mongoConnect } from '../configs/mongoConfig';
 // ---Constants
@@ -29,7 +27,7 @@ function main() {
 
   // ---------------- ROUTES
   app.use('/health/', healthRoutes);
-  // apolloServerInyection(app); // "/graphql" post endpoint
+
   // ---------------- SSL
   // eslint-disable-next-line global-require
   const http = require('http');
