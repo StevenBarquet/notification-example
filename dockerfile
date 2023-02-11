@@ -15,6 +15,7 @@ COPY package*.json ./
 
 COPY config ./config
 COPY .git ./.git
+COPY src/entities/health/config/envsData.ts ./src/entities/health/config/envsData.ts
 
 RUN npm install
 # If you are building your code for production
@@ -34,4 +35,4 @@ CMD [ "node", "./dist/framework/index.js" ]
 # docker build -t node_app_image .
 
 # Create container:
-# docker run --name node-app-container -p 4000:4000 -d --restart unless-stopped node_app_app_image
+# docker run --name node-app-container -p 4000:4000 -d --restart unless-stopped node_app_image
