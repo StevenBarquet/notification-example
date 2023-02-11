@@ -24,7 +24,6 @@ pipelines:
     
     - step:
         name: 'Clean Prev Docker'
-        deployment: staging
         script:
         - pipe: atlassian/ssh-run:0.4.1
           variables:
@@ -37,7 +36,6 @@ pipelines:
 
     - step:
         name: 'Clean Docker Cache'
-        deployment: staging
         script:
         - pipe: atlassian/ssh-run:0.4.1
           variables:
@@ -50,7 +48,6 @@ pipelines:
 
     - step:
         name: 'Build and Deploy'
-        deployment: staging
         script:
         - pipe: atlassian/ssh-run:0.4.1
           variables:
