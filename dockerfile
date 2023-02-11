@@ -35,4 +35,10 @@ CMD [ "node", "./dist/framework/index.js" ]
 # docker build -t node_app_image .
 
 # Create container:
-# docker run --name node-app-container -p 4000:4000 -d --restart unless-stopped node_app_image
+# docker run --name node-app-container --network host -p 4000:4000 -d --restart unless-stopped node_app_image
+
+# Log container:
+# docker container logs node-app-container
+
+# Kill container:
+# docker container rm node-app-container -f
