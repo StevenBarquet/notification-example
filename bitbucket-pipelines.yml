@@ -19,5 +19,5 @@ pipelines:
             SERVER: $PROD_EC2_IP
             COMMAND: |
                 cd back-forge-platform/
-                ll
+                ls
    
