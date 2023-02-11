@@ -20,5 +20,4 @@ pipelines:
             DEBUG: 'true'
             COMMAND: |
                 cd back-forge-platform/
-                ls -lrt
-   
+                git pull
