@@ -54,6 +54,7 @@ pipelines:
             SERVER: $PROD_EC2_IP
             DEBUG: 'true'
             COMMAND: |
+                cd back-forge-platform/
                 docker build -t node_app_image .
 
 
