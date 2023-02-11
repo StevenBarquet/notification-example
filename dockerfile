@@ -1,7 +1,7 @@
 FROM node:16.4.2-alpine
 
 # Create app directory
-WORKDIR /backend-src
+WORKDIR /node-app
 
 #Environment variables
 ENV NODE_ENV=production
@@ -31,7 +31,7 @@ EXPOSE 4000
 CMD [ "node", "./dist/framework/index.js" ]
 
 # Image command:
-# docker build -t graphql_stackoverflow_image .
+# docker build -t node_app_image .
 
 # Create container:
-# docker run --name graphql-stackoverflow-container -p 4000:4000 -d --restart unless-stopped graphql_stackoverflow_image
+# docker run --name node-app-container -p 4000:4000 -d --restart unless-stopped node_app_app_image
