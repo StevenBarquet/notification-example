@@ -19,6 +19,7 @@
     }
   },
   "rules": {
+    "global-require": "off",
     "prettier/prettier": "error",
     "require-jsdoc": [
       "warn",

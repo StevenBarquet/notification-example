@@ -1,5 +1,7 @@
 // ---Dependencies
 import express from 'express';
+import { Server } from 'socket.io';
+import http from 'http';
 // ---Middlewares
 import { customHelmet } from './middlewares/customHelmet';
 import { morganlogger } from './middlewares/morganlogger';
@@ -10,6 +12,8 @@ import { mongoConnect } from '../configs/mongoConfig';
 import { healthRoutes } from './routes/health';
 import { APP_PORT, CORS_CONFIG } from 'src/configs/constants/basicConstants';
 import { envValidator } from 'src/configs/envValidator';
+import { socketConfig } from './socketEvents/socketConfig';
+import { tableDataRoutes } from './routes/tableData';
 
 const debugProd = require('debug')('app:prod');
 
@@ -27,19 +31,27 @@ function main() {
 
   // ---------------- ROUTES
   app.use('/health/', healthRoutes);
+  app.use('/table-ex/', tableDataRoutes);
 
   // ---------------- SSL
-  // eslint-disable-next-line global-require
-  const http = require('http');
 
   // const trySSL = process.env.USE_SSL || false; // Set use of https from enviroment
 
-  const server = http;
-  const options = {}; // Get ssl certs if https true
+  const httpServer = http.createServer(app);
+
+  // ---------------- WEB SOCKET SERVER
+  const io = new Server(httpServer, { cors: { origin: '*' } });
+
+  io.on('connection', (socket) => {
+    socketConfig(socket);
+  });
+
   // ---------------- SERVER
-  server.createServer(options, app).listen(APP_PORT, () => {
+  httpServer.listen(APP_PORT, () => {
     debugProd(`https: ${false}, listening to port ${APP_PORT}...`);
   });
+
+  return io;
 }
 
-main();
+export const mainSocket = main();
